@@ -1,12 +1,9 @@
 const crypto = require("crypto")
 
-const createDigest = datum =>
-  crypto
-    .createHash("md5")
-    .update(JSON.stringify(datum))
-    .digest("hex")
+const createDigest = (datum) =>
+  crypto.createHash("md5").update(JSON.stringify(datum)).digest("hex")
 
-exports.generateShotNode = shot => ({
+exports.generateShotNode = (shot) => ({
   id: shot.id.toString(),
   title: shot.title,
   description: shot.description,
@@ -17,6 +14,7 @@ exports.generateShotNode = shot => ({
   cover: shot.images.hidpi,
   width: shot.width,
   height: shot.height,
+  projects: shot.projects,
   children: [],
   parent: "__SOURCE__",
   internal: {
@@ -25,7 +23,7 @@ exports.generateShotNode = shot => ({
   },
 })
 
-exports.generateUserNode = user => ({
+exports.generateUserNode = (user) => ({
   id: user.id.toString(),
   name: user.name,
   username: user.login,
