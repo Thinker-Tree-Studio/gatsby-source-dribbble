@@ -4,6 +4,7 @@
   "description": "Gatsby source plugin for loading your data from Dribbble",
   "main": "gatsby-node.js",
   "scripts": {
+    "prepare": "yarn build",
     "build": "babel src --out-dir .",
     "watch": "babel -w src --out-dir ."
   },
